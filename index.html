@@ -3,15 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/sticky-footer/sticky-footer.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Weather Dashboard</title>
 </head>
-<body>
-    <h1>Weather Dashboard</h1>
-    <input id="search-input" type="text" placeholder="City Name"/>
-    <button id="search">search</button>
-    <p id="dump"></p>
-
+<body class="bg-success">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron bg-light">
+                <h1 class="display-4">Weather Dashboard</h1>
+                <p class="lead">Search the name of a city to view the weather for today and a 5-day forecast going forward.</p>
+            </div>
+        </div>
+        
+        <div class="row pt-2">
+            <div class="col-md-3 col-6">
+                <div class="input-group pb-2">
+                    <input id="search-input" class="form-control" type="text" placeholder="City Name"/>
+                    <button id="search" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <ul id="history" class="list-group"></ul>
+            </div>
+            <div class="col-md-9 col-6">
+                <div id="today" class="card bg-secondary text-light" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title"><span id="city-name"></span> <span id="today-date"></span> <img id="today-icon"/></h3>
+                        <p id="today-temp" class="card-text"></p>
+                        <p id="today-humidity" class="card-text"></p>
+                        <p id="today-wind" class="card-text"></p>
+                        <p id="today-uvi" class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+            
+        
+        <div id="5-day-forecast" class="text-light" style="display: none;">
+            <h2>5-Day Forecast:</h2>
+            <div class="row">
+                <div id="day1" class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title" id="day-1-date"></h3>
+                            <img id="day-1-icon"/>
+                            <p class="card-text" id="day-1-temp"></p>
+                            <p class="card-text" id="day-1-humidity"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="day2" class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title" id="day-2-date"></h3>
+                            <img id="day-2-icon"/>
+                            <p class="card-text" id="day-2-temp"></p>
+                            <p class="card-text" id="day-2-humidity"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="day3" class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title" id="day-3-date"></h3>
+                            <img id="day-3-icon"/>
+                            <p class="card-text" id="day-3-temp"></p>
+                            <p class="card-text" id="day-3-humidity"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="day4" class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title" id="day-4-date"></h3>
+                            <img id="day-4-icon"/>
+                            <p class="card-text" id="day-4-temp"></p>
+                            <p class="card-text" id="day-4-humidity"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="day5" class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title" id="day-5-date"></h3>
+                            <img id="day-5-icon"/>
+                            <p class="card-text" id="day-5-temp"></p>
+                            <p class="card-text" id="day-5-humidity"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <small class="text-muted">Made with ♥ by <a href="https://github.com/bravedown">David Brown.</a></small>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
